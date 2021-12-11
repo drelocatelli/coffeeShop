@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shop/components/Header.dart';
+import 'package:shop/components/Slide.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -13,60 +15,29 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
 
     Size size = MediaQuery.of(context).size;
-
-    return Container(
-      height: size.height * 0.26,
-      color: Colors.transparent,
-      child: Stack(
-        alignment: Alignment.topCenter,
+    return SingleChildScrollView(
+      child: Column(
         children: [
+          Header(),
           Container(
-            padding: EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 40),
-            height: size.height * 0.25 - 27,
-            decoration: BoxDecoration(
-              color: Color.fromRGBO(199, 181, 153, 1.0),
-              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(36), bottomRight: Radius.circular(36)),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+            alignment: Alignment.topLeft,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Hello, {user}!", style: TextStyle(fontSize: 28, color: Color.fromRGBO(132, 113, 104, 1), fontWeight: FontWeight.bold))
+                Text("About us", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24, color: Colors.brown)),
+               Slide(),
+                Padding(
+                  padding: EdgeInsets.only(top: 5),
+                  child: Column(
+                    children: [
+                      Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                      style: TextStyle(color: Colors.black54),)
+                    ],
+                  ),
+                ),
               ],
-            ),
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 22.0, vertical: 10.0),
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              height: 54,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(0, 5),
-                    blurRadius: 20,
-                    color: Color.fromRGBO(158, 158, 158, 1),
-                  ),
-                ]
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                          hintText: "Search",
-                          hintStyle: TextStyle(color: Colors.black45),
-                          enabledBorder: InputBorder.none,
-                          focusedBorder: InputBorder.none
-                      ),
-                    ),
-                  ),
-                ],
-              ),
             ),
           ),
         ],

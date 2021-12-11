@@ -3,6 +3,9 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shop/components/Body.dart';
 
+import 'Constants.dart';
+import 'components/Header.dart';
+
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -17,7 +20,7 @@ class _HomeState extends State<Home> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Center(child: Text("Coffee shop", style: TextStyle(color: Colors.black54, fontWeight: FontWeight.normal))),
-        backgroundColor: Color.fromRGBO(199, 181, 153, 1.0),
+        backgroundColor: kPrimaryColor,
         elevation: 0,
         leading: IconButton(
           icon: SvgPicture.asset("assets/menu.svg", color: Colors.black54),
@@ -37,19 +40,7 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-      body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Body(),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-              child: Text("hello world"),
-            ),
-          ],
-        ),
-      ),
+      body: Body(),
     );
   }
 }
